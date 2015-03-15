@@ -1,0 +1,18 @@
+{
+  "name": "unico",
+  "private": true,
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "signalr": "~2.2.0",
+    "highstock-release": "~2.0.4",
+    "jquery": "~2.1.1",
+    "eventemitter2": "~0.4.14",
+    "less": "~2.4.0"
+  },
+  "exportsOverride": {}
+}
