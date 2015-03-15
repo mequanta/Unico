@@ -1,0 +1,15 @@
+{
+  "plugins": [{
+    "name": "unico.core",
+    "main": "core",
+    "location": "../../plugins/unico.core"
+  }, {
+    "name": "unico.ide.layout",
+    "main": "layout",
+    "location": "../../plugins/unico.ide.layout"
+  }, {
+    "name": "unico.ide.ui",
+    "main": "ui",
+    "location": "../../plugins/unico.ide.ui"
+  }]
+}

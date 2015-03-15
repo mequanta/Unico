@@ -12,7 +12,8 @@
     "highstock-release": "~2.0.4",
     "jquery": "~2.1.1",
     "eventemitter2": "~0.4.14",
-    "less": "~2.4.0"
+    "less": "~2.4.0",
+    "ace-builds": "~1.1.8"
   },
   "exportsOverride": {}
 }
