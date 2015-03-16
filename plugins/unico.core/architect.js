@@ -1,5 +1,6 @@
 // extracted and adapted from http://github.com/c9/architect.git
-define(["EventEmitter2"], function(EventEmitter) {
+define(function(require, exports, module) {
+	var EventEmitter = require("EventEmitter2")
     var DEBUG = typeof location != "undefined" && location.href.match(/debug=[12]/) ? true : false;
 
     function loadConfig(path, callback) {

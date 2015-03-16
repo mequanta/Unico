@@ -12,36 +12,19 @@
         }
 	</style>
     <script type="text/javascript">
-        var dojoConfig = {
-            has: {
-                "dojo-firebug": true,  
-                "dojo-debug-messages": true  
-            },
-　           paths: {
-　　　　　　          "jquery": "../../lib/jquery/jquery",
-                "jquery.signalR": "../../lib/signalr/jquery.signalR",
-                "EventEmitter2": "../../lib/eventemitter2/eventemitter2",
-                "ace": "../../lib/ace-builds/src-min-noconflict/ace.js",
-        　　　　},
-            parseOnLoad: false,
-            packages: [{
-                name: "unico.core",
-                main: "core",
-                location: "../../plugins/unico.core"
-            }, {
-                name: "unico.ide.layout",
-                main: "layout",
-                location: "../../plugins/unico.ide.layout"
-            }, {
-                name: "unico.ide.ui",
-                main: "ui",
-                location: "../../plugins/unico.ide.ui"
-            }],
-            cacheBust: true
-        }
+	    var allPackages = [{
+			name: "dojo",
+			location: "/static/lib/dojo"
+		},{
+			name: "dijit",
+			location: "/static/lib/dijit"
+		},{
+			name: "dojox",
+			location: "/static/lib/dojox"
+		}].concat(@Model.PackagesForLoader);
         var plugins = [@Model.Packages];
     </script>
-    <script type="text/javascript" src="static/lib/dojo/dojo.js" data-dojo-config="isDebug:1, async:1"></script>
+	<script type="text/javascript" src="/static/lib/requirejs/require.js"></script>
     <script type="text/javascript" src="boot.js"></script>
 </head>
 <body class="claro">

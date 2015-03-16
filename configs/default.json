@@ -11,5 +11,9 @@
     "name": "unico.ide.ui",
     "main": "ui",
     "location": "../../plugins/unico.ide.ui"
+  }, {
+    "name": "unico.commands",
+    "main": "commands",
+    "location": "../../plugins/unico.commands"
   }]
 }

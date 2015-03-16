@@ -13,7 +13,19 @@
     "jquery": "~2.1.1",
     "eventemitter2": "~0.4.14",
     "less": "~2.4.0",
-    "ace-builds": "~1.1.8"
+    "ace": "~1.1.8",
+    "requirejs": "~2.1.16",
+    "require-css": "~0.1.8",
+    "require-less": "~0.1.5",
+    "zsh.js": "~2.2.3",
+    "terminal.js": "https://github.com/Gottox/terminal.js/archive/1.0.1.tar.gz"
   },
-  "exportsOverride": {}
+  "exportsOverride": {
+    "zsh.js": {
+      "": "dist/*.*"
+    },
+	"terminal.js": {
+	  "": "lib"
+	}
+  }
 }

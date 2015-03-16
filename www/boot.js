@@ -1,3 +1,32 @@
+require.config({
+	shim: {
+	   'jquery.signalR': ['jquery'],
+		'/signalr/hubs': ['jquery.signalR']
+	},
+　  paths: {
+	    "dojo": "static/lib/dojo",
+	    "dijit": "static/lib/dijit",
+	 	"dojox": "static/lib/dojox",
+		"unico.core/architect": "static/plugins/unico.core/architect",
+        "jquery": "../../lib/jquery/jquery",
+		"jquery.signalR": "../../lib/signalr/jquery.signalR",
+		"EventEmitter2": "static/lib/eventemitter2/eventemitter2",
+		"requirejs": "../../lib/requirejs/require",
+		"ace": "/static/lib/ace/lib/ace",
+		"unico.core": "/static/plugins/unico.core",
+        "unico.commands": "/static/plugins/unico.commands",
+        "unico.ide.ui": "/static/plugins/unico.ide.ui",
+        "unico.ide.layout": "/static/plugins/unico.ide.layout"
+　　},
+    map: {
+        '*': {
+            'css': 'require-css/css',
+            'less': 'require-less/less'
+        }
+    },
+	waitSeconds: 0
+})
+
 require(["unico.core/architect"], function (architect) {
     var plugins = window.plugins;
     var start = Date.now();
