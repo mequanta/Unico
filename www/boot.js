@@ -1,23 +1,29 @@
+
 require.config({
+    i18n: {
+        locale: 'zh-cn'
+    },
 	shim: {
 	   'jquery.signalR': ['jquery'],
 		'/signalr/hubs': ['jquery.signalR']
 	},
-　  paths: {
+　   paths: {
 	    "dojo": "static/lib/dojo",
 	    "dijit": "static/lib/dijit",
 	 	"dojox": "static/lib/dojox",
 		"unico.core/architect": "static/plugins/unico.core/architect",
-        "jquery": "../../lib/jquery/jquery",
-		"jquery.signalR": "../../lib/signalr/jquery.signalR",
+        "jquery": "static/lib/jquery/jquery",
+		"jquery.signalR": "static/lib/signalr/jquery.signalR",
 		"EventEmitter2": "static/lib/eventemitter2/eventemitter2",
-		"requirejs": "../../lib/requirejs/require",
+        "i18n": "static/lib/requirejs-i18n/i18n",
 		"ace": "/static/lib/ace/lib/ace",
+
 		"unico.core": "/static/plugins/unico.core",
         "unico.commands": "/static/plugins/unico.commands",
         "unico.ide.ui": "/static/plugins/unico.ide.ui",
-        "unico.ide.layout": "/static/plugins/unico.ide.layout"
-　　},
+        "unico.ide.layout": "/static/plugins/unico.ide.layout",
+        "unico.signalr": "/static/plugins/unico.signalr"
+　　  },
     map: {
         '*': {
             'css': 'require-css/css',
@@ -27,6 +33,7 @@ require.config({
 	waitSeconds: 0
 })
 
+//require(["unico.resource"]);
 require(["unico.core/architect"], function (architect) {
     var plugins = window.plugins;
     var start = Date.now();

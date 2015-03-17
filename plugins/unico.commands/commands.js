@@ -1,16 +1,18 @@
-define(function(require, exports, module) {
+define([
+    "ace/commands/command_manager",
+    "ace/lib/keys",
+    "ace/keyboard/keybinding",
+    "ace/lib/lang",
+    "ace/lib/event"
+], function(cm, keyUtil, kb, lang, event) {
     main.consumes = ["core", "Plugin"];
     main.provides = ["commands"];
     return main;
 
     function main(options, imports, register) {
         var Plugin = imports.Plugin;
-		var CommandManager = require("ace/commands/command_manager").CommandManager
-        var keyUtil = require("ace/lib/keys");
-        var KeyBinding = require("ace/keyboard/keybinding").KeyBinding;
-        var lang = require("ace/lib/lang");
-        var event = require("ace/lib/event");
-		
+		var CommandManager = cm.CommandManager
+        var KeyBinding = kb.KeyBinding;
         var nav = navigator.platform.toLowerCase();
         var platform = nav.indexOf("mac") > -1 ? "mac" : "win";
         var commandManager = new CommandManager(platform);

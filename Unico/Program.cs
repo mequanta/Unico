@@ -21,6 +21,15 @@ namespace Unico
     {
         public static void Main(string[] args)
         {
+            string homeDir = (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
+                ? Environment.GetEnvironmentVariable("HOME")
+                : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+            string binDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string svrPluginsDir = Path.Combine(binDir, "Plugins");
+            string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", ".."));
+            string sysClientPluginsDIR = Path.Combine(baseDir, "plugins");
+            string userClientPluginsDir = Path.Combine(homeDir, ".unico", "plugins");
+
             string host = "localhost";
             int port = 9000;
             string wwwroot = Path.Combine("..", "..", "www");
@@ -33,26 +42,23 @@ namespace Unico
             p.Parse(args);
             string url = string.Format("http://{0}:{1}", host, port);
             var options = new StartOptions(url);
-            options.Settings["wwwroot"] = wwwroot;
-            string binDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string sPluginsDir = Path.Combine(binDir, "Plugins");
 
-            string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", ".."));
-            string pluginsDIR = Path.Combine(baseDir, "plugins");
-            string config = Path.Combine(baseDir, "configs", "default.json");
-            var json = File.ReadAllText(config);
-            var obj = JObject.Parse(json);
+            string configFile = Path.Combine(baseDir, "configs", "default.json");
+            var config = JObject.Parse(File.ReadAllText(configFile));
             var pkgs = new List<string>();
-            var packagesForLoader = obj["plugins"].ToString();
-            foreach (var plugin in obj["plugins"])
+            var packagesForLoader = config["plugins"].ToString();
+            string workspaceDir = config.Value<string>("workspace");
+            workspaceDir = string.IsNullOrEmpty(workspaceDir) ? baseDir : workspaceDir;
+
+            foreach (var plugin in config["plugins"])
             {
-                var name = plugin["name"];
-                var main = plugin["main"];
-                var location = plugin["location"];
-                pkgs.Add(string.Format("{{'packagePath':'{0}/{1}'}}", name, main));
+                string str = plugin.Type == JTokenType.String ? 
+                    string.Format("{{'packagePath':'{0}'}}", plugin) :
+                    string.Format("{{'packagePath':'{0}/{1}'}}", plugin["name"], plugin["main"]);
+                pkgs.Add(str);
             }
             var packages = string.Join(",", pkgs.ToArray());
-            RegisterServerPluginDlls(sPluginsDir);
+            RegisterServerPluginDlls(svrPluginsDir);
             using (WebApp.Start(url, app =>
             {
                 app.Properties["host.AppName"] = "Mso";
@@ -82,7 +88,7 @@ namespace Unico
                     RequestPath = new PathString("/static/lib"),
                     FileSystem = new PhysicalFileSystem(Path.Combine("..", "..", "www", "lib"))
                 });
-                foreach (var dir in Directory.GetDirectories(pluginsDIR))
+                foreach (var dir in Directory.GetDirectories(sysClientPluginsDIR))
                 {
                     var plugin = Path.GetFileName(dir);
                     app.UseFileServer(new FileServerOptions()

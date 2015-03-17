@@ -1,4 +1,8 @@
 {
+  "host": "localhost",
+  "port": "9000",
+  "workspaceDir": "",
+
   "plugins": [{
     "name": "unico.core",
     "main": "core",
@@ -15,5 +19,8 @@
     "name": "unico.commands",
     "main": "commands",
     "location": "../../plugins/unico.commands"
-  }]
+  },
+    "unico.ide.ui/menus",
+    "unico.signalr/signalr"
+  ]
 }

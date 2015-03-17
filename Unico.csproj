@@ -73,12 +73,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Mono.Options\Options.cs" />
+    <Compile Include="Unico\SignalR\Hubs\FileSystemHub.cs" />
+    <Compile Include="Unico\SignalR\Hubs\TerminalHub.cs" />
+    <Compile Include="Unico\Terminal\TmuxBackend.cs" />
+    <Compile Include="Unico\Program.cs" />
+    <Compile Include="Unico\SignalR\Hubs\CollaborationHub.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Unico\" />
   </ItemGroup>
 </Project>

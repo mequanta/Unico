@@ -1,4 +1,13 @@
-define(function(require, exports, module) {
+define([
+    "dojo/dom",
+    "dijit/MenuBar",
+    "dijit/PopupMenuBarItem",
+    "dijit/Menu",
+    "dijit/MenuItem",
+    "dijit/DropDownMenu",
+    "i18n!nls/resource",
+    "dojo/domReady!"
+], function(dom, MenuBar, PopupMenuBarItem, Menu, MenuItem, DropDownMenu, resource) {
     main.consumes = ["Plugin", "layout"];
     main.provides = ["menus"];
     return main;
@@ -8,6 +17,7 @@ define(function(require, exports, module) {
         var plugin = new Plugin("Ajax.org", main.consumes);
         var emit = plugin.getEmitter();
 
+        var menuBar;
 		var items = {};
         var menus = {};
 		var inited = false;
@@ -25,6 +35,41 @@ define(function(require, exports, module) {
             if (drawn) return;
             drawn = true;
 			
+            var topPanel = dom.byId("topPanel");
+            menuBar = new MenuBar({});
+    
+    var pSubMenu = new DropDownMenu({});
+    pSubMenu.addChild(new MenuItem({
+        label: "File item #1"
+    }));
+    pSubMenu.addChild(new MenuItem({
+        label: "File item #2"
+    }));
+    menuBar.addChild(new PopupMenuBarItem({
+        label: resource.file,
+        popup: pSubMenu
+    }));
+
+    var pSubMenu2 = new DropDownMenu({});
+    pSubMenu2.addChild(new MenuItem({
+        label: "Cut",
+        iconClass: "dijitEditorIcon dijitEditorIconCut"
+    }));
+    pSubMenu2.addChild(new MenuItem({
+        label: "Copy",
+        iconClass: "dijitEditorIcon dijitEditorIconCopy"
+    }));
+    pSubMenu2.addChild(new MenuItem({
+        label: "Paste",
+        iconClass: "dijitEditorIcon dijitEditorIconPaste"
+    }));
+
+    menuBar.addChild(new PopupMenuBarItem({
+        label: "Edit",
+        popup: pSubMenu2
+    }));
+
+            menuBar.placeAt(topPanel);
 			emit("draw");
         }
        
@@ -83,6 +128,7 @@ define(function(require, exports, module) {
         });
 
         plugin.freezePublicAPI({
+            get menuBar() { return menuBar; }
         });
 
         register(null, {

@@ -1,10 +1,10 @@
-define(function() {
+define(['/signalr/hubs'], function() {
     main.consumes = ["core"];
     main.provides = ["signalr"];
     return main;
 
     function main(options, imports, register) {
-        var plugin = {};        
+        var plugin = {};
         register(null, {
             signalr: plugin
         });

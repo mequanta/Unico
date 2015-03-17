@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>Unico IDE for dotNet, Hello @Model.Name</title>
-	<link type="text/css" rel="stylesheet" href="static/lib/dijit/themes/claro/claro.css">
-	<style type="text/css">
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
-	</style>
+	<link type="text/css" rel="stylesheet" href="/static/lib/dijit/themes/claro/claro.css">
+	<link type="text/css" rel="stylesheet" href="/static/lib/dijit/themes/tundra/tundra.css">
+	<link type="text/css" rel="stylesheet" href="/static/lib/dijit/themes/nihilo/nihilo.css">
+	<link type="text/css" rel="stylesheet" href="/static/lib/dijit/themes/soria/soria.css">
+    <link type="text/css" rel="stylesheet" href="/static/plugins/unico.ide.ui/style.css">
     <script type="text/javascript">
+        var dojoConfig = {};
+
 	    var allPackages = [{
 			name: "dojo",
 			location: "/static/lib/dojo"
-		},{
+		}, {
 			name: "dijit",
 			location: "/static/lib/dijit"
-		},{
+		}, {
 			name: "dojox",
 			location: "/static/lib/dojox"
 		}].concat(@Model.PackagesForLoader);
+
         var plugins = [@Model.Packages];
     </script>
 	<script type="text/javascript" src="/static/lib/requirejs/require.js"></script>
@@ -29,7 +29,7 @@
 </head>
 <body class="claro">
 <div data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
-    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">Top pane</div>
+    <div id="topPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'"></div>
     <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading'">
         <div data-dojo-type="dijit/layout/AccordionPane" title="pane #1">accordion pane #1</div>
         <div data-dojo-type="dijit/layout/AccordionPane" title="pane #2">accordion pane #2</div>

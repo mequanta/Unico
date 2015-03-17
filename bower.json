@@ -1,7 +1,6 @@
 {
   "name": "unico",
   "private": true,
-  "version": "0.0.1",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -9,7 +8,7 @@
   ],
   "dependencies": {
     "signalr": "~2.2.0",
-    "highstock-release": "~2.0.4",
+    "highstock-release": "~2.1.4",
     "jquery": "~2.1.1",
     "eventemitter2": "~0.4.14",
     "less": "~2.4.0",
@@ -18,14 +17,15 @@
     "require-css": "~0.1.8",
     "require-less": "~0.1.5",
     "zsh.js": "~2.2.3",
-    "terminal.js": "https://github.com/Gottox/terminal.js/archive/1.0.1.tar.gz"
+    "requirejs-i18n": "~2.0.4",
+    "jq-console": "~2.11.0"
   },
   "exportsOverride": {
     "zsh.js": {
       "": "dist/*.*"
     },
-	"terminal.js": {
-	  "": "lib"
-	}
+    "jq-console": {
+      "": ["jqconsole.min.js", "css/*"]
+    } 
   }
 }
