@@ -1,7 +1,19 @@
 define([
-    "dojo/parser",
     "dojo/ready",
-], function(parser, ready) {
+    "dojo/dom",
+    "dojo/dom-construct",
+    "text!./layout.html",
+    "dojo/parser",
+    "dojo/_base/declare",
+    "dijit/_WidgetBase",
+    "dijit/_TemplatedMixin",
+    "dijit/_WidgetsInTemplateMixin",
+    "dijit/layout/ContentPane",
+    "dijit/layout/BorderContainer",
+    "dijit/layout/TabContainer",
+    "dijit/layout/AccordionContainer",
+    "dijit/layout/AccordionPane"
+], function(ready, dom, domConstruct, template, parser, declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin) {
     main.consumes = ["core", "Plugin"];
     main.provides = ["layout"];
     return main;
@@ -10,11 +22,15 @@ define([
         var Plugin = imports.Plugin;
         var plugin = new Plugin("Ajax.org", main.consumes);
         var emit = plugin.getEmitter();
-
+   
         var loaded = false;
         function load() {
             if (loaded) return false;
             loaded = true;
+            declare("MainWidget",  [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
+                templateString: template
+            });
+            parser.parse();
             draw();
         }
 
@@ -22,8 +38,10 @@ define([
         function draw() {
             if (drawn) return;
             drawn = true;
-            ready(function(){
-                parser.parse();
+            ready(function() {
+                var widget = new MainWidget({}, domConstruct.create('div'));
+                widget.placeAt(dom.byId('layoutContainer'));
+                widget.startup();
                 emit("draw");
             });
         }

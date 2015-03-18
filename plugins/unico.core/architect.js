@@ -167,6 +167,7 @@ define(function(require, exports, module) {
 
         function startPlugins(additional) {
             var plugin = sortedPlugins.shift();
+
             if (!plugin) {
                 ready = true;
                 return app.emit(additional ? "ready-additional" : "ready", app);

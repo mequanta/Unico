@@ -20,7 +20,8 @@
     "requirejs-i18n": "~2.0.4",
     "jq-console": "~2.11.0",
     "octicons": "~2.2.0",
-    "lodash": "~3.5.0"
+    "lodash": "~3.5.0",
+    "text": "~2.0.14"
   },
   "exportsOverride": {
     "jquery": {

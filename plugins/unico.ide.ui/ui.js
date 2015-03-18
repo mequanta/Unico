@@ -1,4 +1,4 @@
-define(function() {
+define(function(require, exports, module) {
     main.consumes = ["Plugin", "layout"];
     main.provides = ["ui"];
     return main;

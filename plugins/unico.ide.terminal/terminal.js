@@ -1,4 +1,4 @@
-define(function() {
+define(function(require, exports, module) {
     main.consumes = ["core", "Plugin", "signalr"];
     main.provides = ["terminal"];
     return main;

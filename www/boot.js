@@ -17,6 +17,7 @@ require.config({
 		"EventEmitter2": "static/lib/eventemitter2/eventemitter2",
         "i18n": "static/lib/requirejs-i18n/i18n",
 		"ace": "/static/lib/ace/lib/ace",
+		"text": "/static/lib/text/text",
 
 		"unico.core": "/static/plugins/unico.core",
         "unico.commands": "/static/plugins/unico.commands",
@@ -33,7 +34,6 @@ require.config({
 	waitSeconds: 0
 })
 
-//require(["unico.resource"]);
 require(["unico.core/architect"], function (architect) {
     var plugins = window.plugins;
     var start = Date.now();
@@ -54,13 +54,14 @@ require(["unico.core/architect"], function (architect) {
         if (err) throw err;
 
         var errored;
-        var app = architect.createApp(config, function (err, app) {
+        var app = architect.createApp(config, function(err, app) {
             if (err) {
                 errored = true;
                 console.error(err.stack);
                 alert(err);
             }
         });
+
 
         app.lut = {};
 

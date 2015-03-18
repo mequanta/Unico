@@ -1,5 +1,5 @@
 define(['/signalr/hubs'], function() {
-    main.consumes = ["core"];
+    main.consumes = [];
     main.provides = ["signalr"];
     return main;
 
