@@ -18,14 +18,22 @@
     "require-less": "~0.1.5",
     "zsh.js": "~2.2.3",
     "requirejs-i18n": "~2.0.4",
-    "jq-console": "~2.11.0"
+    "jq-console": "~2.11.0",
+    "octicons": "~2.2.0",
+    "lodash": "~3.5.0"
   },
   "exportsOverride": {
+    "jquery": {
+      "": "dist/*.min.js"
+    },
     "zsh.js": {
       "": "dist/*.*"
     },
     "jq-console": {
-      "": ["jqconsole.min.js", "css/*"]
-    } 
+      "": [
+        "jqconsole.min.js",
+        "css/*"
+      ]
+    }
   }
 }

@@ -14,6 +14,7 @@ using RazorEngine;
 using System.Text;
 using System.Collections.Generic;
 using System.Web;
+using System.Linq;
 
 namespace Unico
 {
@@ -27,12 +28,12 @@ namespace Unico
             string binDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string svrPluginsDir = Path.Combine(binDir, "Plugins");
             string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", ".."));
-            string sysClientPluginsDIR = Path.Combine(baseDir, "plugins");
+            string sysClientPluginsDir = Path.Combine(baseDir, "plugins");
             string userClientPluginsDir = Path.Combine(homeDir, ".unico", "plugins");
 
             string host = "localhost";
             int port = 9000;
-            string wwwroot = Path.Combine("..", "..", "www");
+            string wwwroot = Path.GetFullPath(Path.Combine(baseDir, "www"));
             var p = new OptionSet()
             {
                 { "h|host",  v => host = v  },
@@ -41,7 +42,6 @@ namespace Unico
             };
             p.Parse(args);
             string url = string.Format("http://{0}:{1}", host, port);
-            var options = new StartOptions(url);
 
             string configFile = Path.Combine(baseDir, "configs", "default.json");
             var config = JObject.Parse(File.ReadAllText(configFile));
@@ -83,19 +83,30 @@ namespace Unico
                     FileSystem = new PhysicalFileSystem(wwwroot)
                 });
 
+                var wwwLibDir = Path.Combine(wwwroot, "lib");
+                // make sure it exists
+                Directory.CreateDirectory(wwwLibDir);
                 app.UseFileServer(new FileServerOptions()
                 {
                     RequestPath = new PathString("/static/lib"),
-                    FileSystem = new PhysicalFileSystem(Path.Combine("..", "..", "www", "lib"))
+                    FileSystem = new PhysicalFileSystem(wwwLibDir)
                 });
-                foreach (var dir in Directory.GetDirectories(sysClientPluginsDIR))
+
+                foreach (var dir in new string[] { sysClientPluginsDir, userClientPluginsDir})
                 {
-                    var plugin = Path.GetFileName(dir);
-                    app.UseFileServer(new FileServerOptions()
+                    if (Directory.Exists(dir))
                     {
-                        RequestPath = new PathString("/static/plugins/" + plugin),
-                        FileSystem = new PhysicalFileSystem(Path.Combine("..", "..", "plugins", plugin))
-                    });
+                        foreach (var subdir in Directory.GetDirectories(sysClientPluginsDir))
+                        {
+                    
+                            var plugin = Path.GetFileName(subdir);
+                            app.UseFileServer(new FileServerOptions()
+                            {
+                                RequestPath = new PathString("/static/plugins/" + plugin),
+                                FileSystem = new PhysicalFileSystem(subdir)
+                            });
+                        }
+                    }
                 }
                 app.UseErrorPage();
             }))
@@ -115,12 +126,6 @@ namespace Unico
                 var assembly = Assembly.LoadFrom(path);
                 AppDomain.CurrentDomain.Load(assembly.FullName);
             }
-        }
-
-        private static void ReadConfig(string path)
-        {
-            var json = File.ReadAllText(path);
-            var obj = JObject.Parse(json);		
         }
     }
 }

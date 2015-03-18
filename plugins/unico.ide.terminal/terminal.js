@@ -1,10 +1,12 @@
 define(function() {
-    main.consumes = ["core", "Plugin"];
+    main.consumes = ["core", "Plugin", "signalr"];
     main.provides = ["terminal"];
     return main;
 
     function main(options, imports, register) {
         var Plugin = imports.Plugin;
+        var connection = imports.signalr.connection;
+        
         var plugin = new Plugin("Ajax.org", main.consumes);
         var emit = plugin.getEmitter();
 

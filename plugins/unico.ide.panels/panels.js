@@ -1,14 +1,12 @@
 define(['/signalr/hubs'], function() {
     main.consumes = ["core"];
-    main.provides = ["signalr"];
+    main.provides = ["panels"];
     return main;
 
     function main(options, imports, register) {
         var plugin = {};
-        
-        plugin.connection = {}
         register(null, {
-            signalr: plugin
+            panels: plugin
         });
     }
 })
