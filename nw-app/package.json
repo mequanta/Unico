@@ -1,0 +1,16 @@
+{
+  "name": "unico",
+  "main": "ide.html",
+  "window": {
+    "title": "Unico",
+    "toolbar": true,
+    "frame": true,
+    "width": 2560,
+    "height": 1980,
+    "show": false
+  },
+  "chromium-args": "--disable-web-security --ignore-certificate-errors --auth-schemes='digest,ntlm,negotiate,basic'",
+  "webkit": {
+     "page-cache": false
+  }
+}

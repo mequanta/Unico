@@ -1,6 +1,9 @@
 {
+  "name": "unico",
+  "main": "www/ide.html",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-bower-task": "^0.4.0"
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-coffee": "^0.13.0"
   }
 }

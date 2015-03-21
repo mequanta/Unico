@@ -5,9 +5,10 @@ define([
     "dijit/Menu",
     "dijit/MenuItem",
     "dijit/DropDownMenu",
+    "dijit/registry",
     "i18n!nls/resource",
     "dojo/domReady!"
-], function(dom, MenuBar, PopupMenuBarItem, Menu, MenuItem, DropDownMenu, resource) {
+], function(dom, MenuBar, PopupMenuBarItem, Menu, MenuItem, DropDownMenu, registry, resource) {
     main.consumes = ["Plugin", "layout"];
     main.provides = ["menus"];
     return main;
@@ -35,48 +36,48 @@ define([
             if (drawn) return;
             drawn = true;
 			
-            var topPanel = dom.byId("topPanel");
+            var topPanel = registry.byId("topPanel");
             menuBar = new MenuBar({});
     
-    var pSubMenu = new DropDownMenu({});
-    pSubMenu.addChild(new MenuItem({
-        label: "File item #1"
-    }));
-    pSubMenu.addChild(new MenuItem({
-        label: "File item #2"
-    }));
-    menuBar.addChild(new PopupMenuBarItem({
-        label: resource.file,
-        popup: pSubMenu
-    }));
+            var pSubMenu = new DropDownMenu({});
+            pSubMenu.addChild(new MenuItem({
+                label: "File item #1"
+            }));
+            pSubMenu.addChild(new MenuItem({
+                label: "File item #2"
+            }));
+            menuBar.addChild(new PopupMenuBarItem({
+                label: resource.file,
+                popup: pSubMenu
+            }));
 
-    var pSubMenu2 = new DropDownMenu({});
-    pSubMenu2.addChild(new MenuItem({
-        label: "Cut",
-        iconClass: "dijitEditorIcon dijitEditorIconCut"
-    }));
-    pSubMenu2.addChild(new MenuItem({
-        label: "Copy",
-        iconClass: "dijitEditorIcon dijitEditorIconCopy"
-    }));
-    pSubMenu2.addChild(new MenuItem({
-        label: "Paste",
-        iconClass: "dijitEditorIcon dijitEditorIconPaste"
-    }));
+            var pSubMenu2 = new DropDownMenu({});
+            pSubMenu2.addChild(new MenuItem({
+                label: "Cut",
+                iconClass: "dijitEditorIcon dijitEditorIconCut"
+            }));
+            pSubMenu2.addChild(new MenuItem({
+                label: "Copy",
+                iconClass: "dijitEditorIcon dijitEditorIconCopy"
+            }));
+            pSubMenu2.addChild(new MenuItem({
+                label: "Paste",
+                iconClass: "dijitEditorIcon dijitEditorIconPaste"
+            }));
 
-    menuBar.addChild(new PopupMenuBarItem({
-        label: "Edit",
-        popup: pSubMenu2
-    }));
+            menuBar.addChild(new PopupMenuBarItem({
+                label: "Edit",
+                popup: pSubMenu2
+            }));
 
             menuBar.placeAt(topPanel);
+            registry.byId("borderContainer").resize();
 			emit("draw");
         }
        
 	           
         function init() {
-            inited = true;
-			
+            inited = true;	
 			emit.sticky("ready");
 		}
 		

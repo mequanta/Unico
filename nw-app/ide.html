@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <script>
+        var gui = require("nw.gui");
+        var argv = gui.App.argv;
+        var win = gui.Window.get();
+        win.showDevTools();
+        onload = function() {
+            win.show();
+        }
+        process.on("uncaughtException", function(err) { 
+            console.error(err);
+        });
+        //var server = require("./server");
+    </script>
+</html>
+

@@ -30,7 +30,6 @@ define([
             declare("MainWidget",  [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
                 templateString: template
             });
-            parser.parse();
             draw();
         }
 

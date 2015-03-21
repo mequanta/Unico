@@ -161,6 +161,9 @@ define(["EventEmitter2"], function(Emitter) {
             manuallyDisabled[name] = plugin;
         }
 
+        function ready() {
+            emit.stick("ready");
+        }
         /***** Register and define API *****/
 
         /**
@@ -171,12 +174,12 @@ define(["EventEmitter2"], function(Emitter) {
             /**
              *
              */
-            get plugins(){ return plugins.slice(0); },
+            get plugins() { return plugins.slice(0); },
 
             /**
              *
              */
-            get named(){
+            get named() {
                 var named = Object.create(lut);
                 for (var name in manuallyDisabled) {
                     if (!lut[name])
@@ -264,7 +267,9 @@ define(["EventEmitter2"], function(Emitter) {
             /**
              *
              */
-            disablePlugin: disablePlugin
+            disablePlugin: disablePlugin,
+
+            ready: ready
         });
 
         function Plugin(developer, deps) {

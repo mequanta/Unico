@@ -6,8 +6,8 @@ require.config({
 	shim: {
 	   'jquery.signalR': ['jquery'],
 		'/signalr/hubs': ['jquery.signalR']
-	},
-　   paths: {
+	}, 
+    paths: {
 	    "dojo": "static/lib/dojo",
 	    "dijit": "static/lib/dijit",
 	 	"dojox": "static/lib/dojox",
@@ -15,6 +15,7 @@ require.config({
         "jquery": "static/lib/jquery/jquery",
 		"jquery.signalR": "static/lib/signalr/jquery.signalR",
 		"EventEmitter2": "static/lib/eventemitter2/eventemitter2",
+        "events": "/static/plugins/unico.core/events",
         "i18n": "static/lib/requirejs-i18n/i18n",
 		"ace": "/static/lib/ace/lib/ace",
 		"text": "/static/lib/text/text",
@@ -24,7 +25,7 @@ require.config({
         "unico.ide.ui": "/static/plugins/unico.ide.ui",
         "unico.ide.layout": "/static/plugins/unico.ide.layout",
         "unico.signalr": "/static/plugins/unico.signalr"
-　　  },
+    },
     map: {
         '*': {
             'css': 'require-css/css',
@@ -43,7 +44,7 @@ require(["unico.core/architect"], function (architect) {
         setup: function (options, imports, register) {
             register(null, {
                 "auth.bootstrap": {
-                    login: function (callback) {
+                    login: function(callback) {
                         callback();
                     }
                 }
@@ -62,7 +63,6 @@ require(["unico.core/architect"], function (architect) {
             }
         });
 
-
         app.lut = {};
 
         app.on("error", function (err) {
@@ -72,12 +72,8 @@ require(["unico.core/architect"], function (architect) {
         });
 
         app.on("service", function(name, plugin, options) {
-            if (name == "plugin.loader" || name == "plugin.installer" || name == "plugin.debug" || name == "plugin.manager")
-                plugin.architect = app;
             if (!plugin.name)
                 plugin.name = name;
-            if (options)
-                app.lut[(options.packagePath || "").replace(/^.*\/home\/.c9\//, "")] = options;
         });
 
         app.on("ready", function () {
