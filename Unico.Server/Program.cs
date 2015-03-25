@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Linq;
 
-namespace Unico
+namespace Unico.Server
 {
     class MainClass
     {
@@ -27,7 +27,7 @@ namespace Unico
                 : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
             string binDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string svrPluginsDir = Path.Combine(binDir, "Plugins");
-            string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", ".."));
+            string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", "..", ".."));
             string sysClientPluginsDir = Path.Combine(baseDir, "plugins");
             string userClientPluginsDir = Path.Combine(homeDir, ".unico", "plugins");
 
@@ -42,7 +42,6 @@ namespace Unico
             };
             p.Parse(args);
             string url = string.Format("http://{0}:{1}", host, port);
-
             string configFile = Path.Combine(baseDir, "configs", "default.json");
             var config = JObject.Parse(File.ReadAllText(configFile));
             var pkgs = new List<string>();

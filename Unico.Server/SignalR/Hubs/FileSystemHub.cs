@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR;
 using System.IO;
 
-namespace Unico.SignalR.Hubs
+namespace Unico.Server.SignalR.Hubs
 {
     public class FileSystemHub : Hub
     {

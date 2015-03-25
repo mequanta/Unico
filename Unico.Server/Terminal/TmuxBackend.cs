@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Unico.Terminal
+namespace Unico.Server.Terminal
 {
     public class TmuxBackend
     {

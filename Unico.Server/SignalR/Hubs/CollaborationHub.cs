@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace Unico.SignalR.Hubs
+namespace Unico.Server.SignalR.Hubs
 {
     public class CollaborationHub : Hub
     {
