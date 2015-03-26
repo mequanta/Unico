@@ -30,7 +30,6 @@ namespace Unico.Server
             string baseDir = Path.GetFullPath(Path.Combine(binDir, "..", "..", ".."));
             string sysClientPluginsDir = Path.Combine(baseDir, "plugins");
             string userClientPluginsDir = Path.Combine(homeDir, ".unico", "plugins");
-
             string host = "localhost";
             int port = 9000;
             string wwwroot = Path.GetFullPath(Path.Combine(baseDir, "www"));

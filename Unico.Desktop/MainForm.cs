@@ -9,8 +9,6 @@ namespace Unico.Desktop
 {
     public class MainForm : Form
     {
-        private readonly SynchronizationContext synContext = WindowsFormsSynchronizationContext.Current;
-
         public MainForm()
         {
             Size = new Size(800, 600);
