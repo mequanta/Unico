@@ -5,18 +5,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Server", "Unico.Serve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop", "Unico.Desktop\Unico.Desktop.csproj", "{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop.GtkSharp", "Unico.Desktop.GtkSharp\Unico.Desktop.GtkSharp.csproj", "{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|win64 = Debug|win64
 		Debug|linux64 = Debug|linux64
+		Debug|win32 = Debug|win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|linux64.ActiveCfg = Debug|linux64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|linux64.Build.0 = Debug|linux64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win32.ActiveCfg = Debug|win32
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win32.Build.0 = Debug|win32
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win64.ActiveCfg = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win64.Build.0 = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|linux64.ActiveCfg = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|linux64.Build.0 = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win32.ActiveCfg = Debug|win32
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win32.Build.0 = Debug|win32
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win64.ActiveCfg = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win64.Build.0 = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|linux64.ActiveCfg = Debug|linux64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|linux64.Build.0 = Debug|linux64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win32.ActiveCfg = Debug|win32
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win32.Build.0 = Debug|win32
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win64.ActiveCfg = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win64.Build.0 = Debug|win64
 	EndGlobalSection
