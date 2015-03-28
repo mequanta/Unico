@@ -15,23 +15,15 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|linux64' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|win32' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\win32\Debug</OutputPath>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|macosx64' ">
-    <Optimize>false</Optimize>
-    <OutputPath>bin\macosx64\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>

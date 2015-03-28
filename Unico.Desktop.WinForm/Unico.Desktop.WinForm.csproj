@@ -8,7 +8,6 @@
     <ProjectGuid>{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Unico.Desktop</RootNamespace>
-    <AssemblyName>Unico.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|win64' ">
@@ -16,24 +15,19 @@
     <OutputPath>bin\win64\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AssemblyName>Unico.Desktop.WinForm</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|linux64' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AssemblyName>Unico.Desktop</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|win32' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\win32\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|macosx64' ">
-    <Optimize>false</Optimize>
-    <OutputPath>bin\macosx64\Debug</OutputPath>
-    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Unico.Desktop</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

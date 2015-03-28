@@ -3,42 +3,85 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Server", "Unico.Server\Unico.Server.csproj", "{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop", "Unico.Desktop\Unico.Desktop.csproj", "{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop.GtkSharp", "Unico.Desktop.GtkSharp\Unico.Desktop.GtkSharp.csproj", "{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop.MonoMac", "Unico.Desktop.MonoMac\Unico.Desktop.MonoMac.csproj", "{D7E09532-1042-4F5F-B4A0-347B3044C911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop.Common", "Unico.Desktop.Common\Unico.Desktop.Common.csproj", "{52ADCE38-8C30-4565-92BE-566DD404AD11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Server.Core", "Unico.Server.Core\Unico.Server.Core.csproj", "{0098A374-4FE8-487B-A857-A72880478A08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unico.Desktop.WinForm", "Unico.Desktop.WinForm\Unico.Desktop.WinForm.csproj", "{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|win64 = Debug|win64
 		Debug|linux64 = Debug|linux64
 		Debug|win32 = Debug|win32
-		Debug|macosx64 = Debug|macosx64
+		Release|Any CPU = Release|Any CPU
+		AppStore|Any CPU = AppStore|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0098A374-4FE8-487B-A857-A72880478A08}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|linux64.ActiveCfg = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|linux64.Build.0 = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|win32.ActiveCfg = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|win32.Build.0 = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|win64.ActiveCfg = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|win64.Build.0 = Debug|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.AppStore|Any CPU.ActiveCfg = Debug|win64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.AppStore|Any CPU.Build.0 = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|linux64.ActiveCfg = Debug|linux64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|linux64.Build.0 = Debug|linux64
-		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|macosx64.ActiveCfg = Debug|macosx64
-		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|macosx64.Build.0 = Debug|macosx64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win32.ActiveCfg = Debug|win32
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win32.Build.0 = Debug|win32
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win64.ActiveCfg = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win64.Build.0 = Debug|win64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|Any CPU.ActiveCfg = Debug|win64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|Any CPU.Build.0 = Debug|win64
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|linux64.ActiveCfg = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|linux64.Build.0 = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|win32.ActiveCfg = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|win32.Build.0 = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|win64.ActiveCfg = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|win64.Build.0 = Debug|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.AppStore|Any CPU.ActiveCfg = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.AppStore|Any CPU.Build.0 = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|linux64.ActiveCfg = Debug|linux64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|linux64.Build.0 = Debug|linux64
-		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|macosx64.ActiveCfg = Debug|macosx64
-		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|macosx64.Build.0 = Debug|macosx64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win32.ActiveCfg = Debug|win32
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win32.Build.0 = Debug|win32
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win64.ActiveCfg = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win64.Build.0 = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|Any CPU.ActiveCfg = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|Any CPU.Build.0 = Debug|win64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.AppStore|Any CPU.ActiveCfg = Debug|win64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.AppStore|Any CPU.Build.0 = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|linux64.ActiveCfg = Debug|linux64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|linux64.Build.0 = Debug|linux64
-		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|macosx64.ActiveCfg = Debug|macosx64
-		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|macosx64.Build.0 = Debug|macosx64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win32.ActiveCfg = Debug|win32
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win32.Build.0 = Debug|win32
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win64.ActiveCfg = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win64.Build.0 = Debug|win64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|Any CPU.ActiveCfg = Debug|win64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|Any CPU.Build.0 = Debug|win64
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.AppStore|Any CPU.ActiveCfg = AppStore|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.AppStore|Any CPU.Build.0 = AppStore|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|linux64.ActiveCfg = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|linux64.Build.0 = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|win32.ActiveCfg = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|win32.Build.0 = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|win64.ActiveCfg = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|win64.Build.0 = Debug|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
