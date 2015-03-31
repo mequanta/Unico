@@ -4,7 +4,7 @@ using System.IO;
 using Xilium.CefGlue;
 using System.Reflection;
 
-namespace Unico.Desktop.GtkSharp
+namespace Unico.Desktop
 {
     class MainClass
     {
@@ -31,6 +31,7 @@ namespace Unico.Desktop.GtkSharp
                 NoSandbox = CefRuntime.Platform == CefRuntimePlatform.Linux,
                 WindowlessRenderingEnabled = true
             };
+
             CefRuntime.Initialize(mainArgs, settings, app, IntPtr.Zero);
             CefRuntime.RegisterSchemeHandlerFactory("http", "server.unico.local", new SimpleSchemeHandlerFactory());
 

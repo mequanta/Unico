@@ -55,14 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="SimpleCefApp.cs" />
     <Compile Include="MainForm.cs" />
-    <Compile Include="SimpleResourceHandler.cs" />
-    <Compile Include="SimpleCefClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.3.2171.1949\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2171.1949\build\cef.redist.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unico.Desktop.Common\Unico.Desktop.Common.csproj">
+      <Project>{52ADCE38-8C30-4565-92BE-566DD404AD11}</Project>
+      <Name>Unico.Desktop.Common</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

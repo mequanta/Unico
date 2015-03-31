@@ -12,6 +12,12 @@ namespace Unico.Desktop
         private static int Main(string[] args)
         {
             CefRuntime.Load();
+
+            var cmdLine = CefCommandLine.Global;
+            Console.WriteLine("CommandLine: {0}", cmdLine);
+            if (!cmdLine.HasSwitch("type"))
+                Console.WriteLine("ProcessType: BrowserProcess");
+            
             var mainArgs = new CefMainArgs(args);
             var app = new SimpleCefApp();
             var exitCode = CefRuntime.ExecuteProcess(mainArgs, app, IntPtr.Zero);
@@ -21,16 +27,19 @@ namespace Unico.Desktop
                 return exitCode;
             }
 
-            var libPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            var binDir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            var resourceDir = binDir;
+            var localesDir = Path.Combine(binDir , "locales");
             var settings = new CefSettings
             { 
                 SingleProcess = false,
                 MultiThreadedMessageLoop = CefRuntime.Platform == CefRuntimePlatform.Windows,
-                ResourcesDirPath =libPath,
-                LocalesDirPath = Path.Combine(libPath , "locales"),
+                ResourcesDirPath =resourceDir,
+                LocalesDirPath = localesDir,
                 NoSandbox = CefRuntime.Platform == CefRuntimePlatform.Linux,
                 WindowlessRenderingEnabled = true
             };
+
             CefRuntime.Initialize(mainArgs, settings, app, IntPtr.Zero);
             CefRuntime.RegisterSchemeHandlerFactory("http", "server.unico.local", new SimpleSchemeHandlerFactory());
 
@@ -39,6 +48,7 @@ namespace Unico.Desktop
             if (!settings.MultiThreadedMessageLoop)
                 Application.Idle += (s, e) => CefRuntime.DoMessageLoopWork();
             Application.Run(new MainForm());
+
             CefRuntime.Shutdown();
             return 0;
         }

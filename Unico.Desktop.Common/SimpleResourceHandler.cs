@@ -11,7 +11,7 @@ using Xilium.CefGlue;
 
 namespace Unico.Desktop
 {
-    internal sealed class SimpleSchemeHandlerFactory : CefSchemeHandlerFactory
+    public sealed class SimpleSchemeHandlerFactory : CefSchemeHandlerFactory
     {
         protected override CefResourceHandler Create(CefBrowser browser, CefFrame frame, string schemeName, CefRequest request)
         {

@@ -1,17 +1,14 @@
-﻿
+﻿using MonoMac.Foundation;
+
 namespace Unico.Desktop
 {
-	
-    // Should subclass MonoMac.AppKit.NSWindow
-    [MonoMac.Foundation.Register("MainWindow")]
+    [Register("MainWindow")]
     public partial class MainWindow
     {
     }
 	
-    // Should subclass MonoMac.AppKit.NSWindowController
-    [MonoMac.Foundation.Register("MainWindowController")]
+    [Register("MainWindowController")]
     public partial class MainWindowController
     {
     }
 }
-

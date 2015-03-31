@@ -66,6 +66,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="MonoMac" />
+    <Reference Include="Xilium.CefGlue">
+      <HintPath>..\packages\Xilium.CefGlue.3.2171.1949\lib\net45\Xilium.CefGlue.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -88,6 +91,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="packages.config" />
+    <None Include="install_cef.sh" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.3.2171.1949\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2171.1949\build\cef.redist.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\Unico.Desktop.Common\Unico.Desktop.Common.csproj">
+      <Project>{52ADCE38-8C30-4565-92BE-566DD404AD11}</Project>
+      <Name>Unico.Desktop.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
