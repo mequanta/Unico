@@ -13,10 +13,10 @@ namespace Unico.Desktop
         {
             CefRuntime.Load();
 
-            var cmdLine = CefCommandLine.Global;
-            Console.WriteLine("CommandLine: {0}", cmdLine);
-            if (!cmdLine.HasSwitch("type"))
-                Console.WriteLine("ProcessType: BrowserProcess");
+//            var cmdLine = CefCommandLine.Global;
+//            Console.WriteLine("CommandLine: {0}", cmdLine);
+//            if (!cmdLine.HasSwitch("type"))
+//                Console.WriteLine("ProcessType: BrowserProcess");
             
             var mainArgs = new CefMainArgs(args);
             var app = new SimpleCefApp();

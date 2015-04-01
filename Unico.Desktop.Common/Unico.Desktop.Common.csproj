@@ -54,6 +54,7 @@
     <Compile Include="SimpleCefApp.cs" />
     <Compile Include="SimpleCefClient.cs" />
     <Compile Include="SimpleResourceHandler.cs" />
+    <Compile Include="SimpleRequestHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.3.2171.1949\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2171.1949\build\cef.redist.targets')" />

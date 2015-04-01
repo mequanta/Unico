@@ -11,10 +11,14 @@ using Owin;
 using Newtonsoft.Json.Linq;
 using Owin.Routing;
 using RazorEngine;
+using RazorEngine.Templating;
 using System.Text;
 using System.Collections.Generic;
 using System.Web;
 using System.Linq;
+using System.Security.Policy;
+using System.Security;
+using System.Security.Permissions;
 
 namespace Unico.Server
 {
@@ -22,6 +26,25 @@ namespace Unico.Server
     {
         public static void Main(string[] args)
         {
+//            if (AppDomain.CurrentDomain.IsDefaultAppDomain())
+//            {
+//                // RazorEngine cannot clean up from the default appdomain...
+//                Console.WriteLine("Switching to secound AppDomain, for RazorEngine...");
+//                AppDomainSetup adSetup = new AppDomainSetup();
+//                adSetup.ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+//                var current = AppDomain.CurrentDomain;
+//                // You only need to add strongnames when your appdomain is not a full trust environment.
+//                var strongNames = new StrongName[0];
+//
+//                var domain = AppDomain.CreateDomain(
+//                    "MyMainDomain", null,
+//                    current.SetupInformation, new PermissionSet(PermissionState.Unrestricted),
+//                    strongNames);
+//                var exitCode = domain.ExecuteAssembly(Assembly.GetExecutingAssembly().Location);
+//                // RazorEngine will cleanup. 
+//                AppDomain.Unload(domain);
+//            }
+//
             string homeDir = (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
                 ? Environment.GetEnvironmentVariable("HOME")
                 : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
@@ -70,7 +93,7 @@ namespace Unico.Server
                 {
                     var template = File.ReadAllText(Path.Combine(baseDir, "www", "ide.html"));
                     var model = new { Name = "Alex", Packages = packages, PackagesForLoader = packagesForLoader };
-                    var result = Razor.Parse(template, model);
+                    var result = Engine.Razor.RunCompile(template, "templateKey", null, model);
                     result = HttpUtility.HtmlDecode(result);
                     await ctx.Response.WriteAsync(result);
                 });

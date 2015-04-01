@@ -7,18 +7,16 @@ namespace Unico.Desktop
     {
         protected override void OnAfterCreated(CefBrowser browser)
         {
-            Console.WriteLine("browser created");
         }
     }
 
     public class SimpleCefClient : CefClient
     {
-        private CefLifeSpanHandler lifeSpanHandler = new SimpleLifeSpanHandler();
+        public CefLifeSpanHandler LifeSpanHandler { get; set; }
 
         protected override CefLifeSpanHandler GetLifeSpanHandler()
         {
-            return lifeSpanHandler;
+            return LifeSpanHandler;
         }
     }
 }
-
