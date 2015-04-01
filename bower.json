@@ -27,6 +27,9 @@
     "jquery": {
       "": "dist/*.min.js"
     },
+    "signalr": {
+      "": "*.min.js"
+    },
     "zsh.js": {
       "": "dist/*.*"
     },

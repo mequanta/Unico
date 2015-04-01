@@ -38,13 +38,8 @@ namespace Unico.Desktop
             Application.Init();
             var win = new MainWindow();
             win.Show();
-
-            if (CefRuntime.Platform == CefRuntimePlatform.Windows) 
-                Application.Run();
-            else
-                CefRuntime.RunMessageLoop();
-
-            Application.Run();
+            CefRuntime.RunMessageLoop();
+            CefRuntime.Shutdown();
             return 0;
         }
     }

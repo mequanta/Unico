@@ -20,6 +20,7 @@ Global
 		Debug|win32 = Debug|win32
 		Release|Any CPU = Release|Any CPU
 		AppStore|Any CPU = AppStore|Any CPU
+		Release|linux64 = Release|linux64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0098A374-4FE8-487B-A857-A72880478A08}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,6 +33,8 @@ Global
 		{0098A374-4FE8-487B-A857-A72880478A08}.Debug|win64.Build.0 = Debug|Any CPU
 		{0098A374-4FE8-487B-A857-A72880478A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0098A374-4FE8-487B-A857-A72880478A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Release|linux64.ActiveCfg = Release|Any CPU
+		{0098A374-4FE8-487B-A857-A72880478A08}.Release|linux64.Build.0 = Release|Any CPU
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.AppStore|Any CPU.ActiveCfg = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.AppStore|Any CPU.Build.0 = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|linux64.ActiveCfg = Debug|linux64
@@ -42,6 +45,8 @@ Global
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Debug|win64.Build.0 = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|Any CPU.ActiveCfg = Debug|win64
 		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|Any CPU.Build.0 = Debug|win64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|linux64.ActiveCfg = Debug|linux64
+		{132B9AEB-1612-44A7-B38D-19F5A03A5C4C}.Release|linux64.Build.0 = Debug|linux64
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.AppStore|Any CPU.Build.0 = Debug|Any CPU
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|linux64.ActiveCfg = Debug|Any CPU
@@ -52,6 +57,8 @@ Global
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Debug|win64.Build.0 = Debug|Any CPU
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|linux64.ActiveCfg = Release|Any CPU
+		{52ADCE38-8C30-4565-92BE-566DD404AD11}.Release|linux64.Build.0 = Release|Any CPU
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.AppStore|Any CPU.ActiveCfg = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.AppStore|Any CPU.Build.0 = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|linux64.ActiveCfg = Debug|linux64
@@ -62,6 +69,8 @@ Global
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Debug|win64.Build.0 = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|Any CPU.ActiveCfg = Debug|win64
 		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|Any CPU.Build.0 = Debug|win64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|linux64.ActiveCfg = Debug|linux64
+		{53770FA0-EA78-4405-AFFB-5EBA8B86A3F0}.Release|linux64.Build.0 = Debug|linux64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.AppStore|Any CPU.ActiveCfg = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.AppStore|Any CPU.Build.0 = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|linux64.ActiveCfg = Debug|linux64
@@ -72,6 +81,8 @@ Global
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Debug|win64.Build.0 = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|Any CPU.ActiveCfg = Debug|win64
 		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|Any CPU.Build.0 = Debug|win64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|linux64.ActiveCfg = Debug|linux64
+		{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}.Release|linux64.Build.0 = Debug|linux64
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.AppStore|Any CPU.ActiveCfg = AppStore|Any CPU
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.AppStore|Any CPU.Build.0 = AppStore|Any CPU
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|linux64.ActiveCfg = Debug|Any CPU
@@ -82,6 +93,8 @@ Global
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Debug|win64.Build.0 = Debug|Any CPU
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|linux64.ActiveCfg = Release|Any CPU
+		{D7E09532-1042-4F5F-B4A0-347B3044C911}.Release|linux64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
