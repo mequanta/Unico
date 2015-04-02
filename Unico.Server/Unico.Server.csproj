@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">win64</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CA7C5B7C-0240-492B-8B4F-C9DA3D4AA764}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Unico.Server</RootNamespace>
@@ -11,21 +11,11 @@
     <SchemaVersion>2.0</SchemaVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|win64' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <Commandlineparameters>-port 9002</Commandlineparameters>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|linux64' ">
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|win32' ">
-    <Optimize>false</Optimize>
-    <OutputPath>bin\win32\Debug</OutputPath>
-    <WarningLevel>4</WarningLevel>
+    <Commandlineparameters>--port 9002</Commandlineparameters>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -21,14 +21,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xilium.CefGlue">
@@ -49,7 +41,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleCefApp.cs" />
     <Compile Include="SimpleCefClient.cs" />
@@ -60,5 +51,11 @@
   <Import Project="..\packages\cef.redist.3.2171.1949\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2171.1949\build\cef.redist.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unico.Server.Core\Unico.Server.Core.csproj">
+      <Project>{0098A374-4FE8-487B-A857-A72880478A08}</Project>
+      <Name>Unico.Server.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

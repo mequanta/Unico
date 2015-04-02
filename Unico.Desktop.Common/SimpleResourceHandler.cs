@@ -8,6 +8,8 @@ using Microsoft.Owin.Hosting.Loader;
 using Microsoft.Owin.Hosting.Services;
 using Microsoft.Owin.Testing;
 using Xilium.CefGlue;
+using System.Reflection;
+using Unico.Server;
 
 namespace Unico.Desktop
 {
@@ -29,7 +31,7 @@ namespace Unico.Desktop
         public SimpleResourceHandler()
         {
             var loader = ServicesFactory.Create ().GetService<IAppLoader> ();
-            var startup = loader.Load (null, new List<string>());
+            var startup = loader.Load ("Unico.Server.Startup", new List<string>());
             this.server = TestServer.Create (startup);
         }
 
@@ -37,18 +39,22 @@ namespace Unico.Desktop
         {
             var uri = new Uri (request.Url);
             var rb = this.server.CreateRequest (uri.AbsolutePath);
+            var headers = request.GetHeaderMap();
+            foreach (string key in headers.Keys)
+                rb.AddHeader(key, headers[key]);
+            this.pos = 0;
             this.responseMessage = rb.SendAsync (request.Method).Result;
-            this.responseData = responseMessage.Content.ReadAsByteArrayAsync ().Result;
+            this.responseData = this.responseMessage.Content.ReadAsByteArrayAsync ().Result;
             callback.Continue();
             return true;
         }
 
         protected override void GetResponseHeaders(CefResponse response, out long responseLength, out string redirectUrl)
         {
-            response.Status = (int)responseMessage.StatusCode;
-            response.StatusText = responseMessage.ReasonPhrase;
+            response.Status = (int)this.responseMessage.StatusCode;
+            response.StatusText = this.responseMessage.ReasonPhrase;
             var headers = new NameValueCollection(StringComparer.InvariantCultureIgnoreCase);
-            foreach (var hdr in responseMessage.Headers)
+            foreach (var hdr in this.responseMessage.Content.Headers)
                 headers.Set(hdr.Key, hdr.Value.FirstOrDefault<string>());
             response.SetHeaderMap(headers);
             responseLength = this.responseData.LongLength;
@@ -57,7 +63,7 @@ namespace Unico.Desktop
 
         protected override bool ReadResponse(Stream response, int bytesToRead, out int bytesRead, CefCallback callback)
         {
-            if (bytesToRead == 0 || pos >= this.responseData.Length)
+            if (bytesToRead == 0 || this.pos >= this.responseData.Length)
             {
                 bytesRead = 0;
                 return false;
@@ -65,7 +71,7 @@ namespace Unico.Desktop
             else
             {
                 response.Write(this.responseData, this.pos, bytesToRead);
-                pos += bytesToRead;
+                this.pos += bytesToRead;
                 bytesRead = bytesToRead;
                 return true;
             }

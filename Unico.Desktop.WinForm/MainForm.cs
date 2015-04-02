@@ -10,7 +10,7 @@ namespace Unico.Desktop
         public MainForm()
         {
             WindowState = FormWindowState.Maximized;
-            var browser = new WebBrowser("www.baidu.com");
+            var browser = new WebBrowser("http://server.unico.local/ide.html");
             browser.Dock = DockStyle.Fill;
             Controls.Add(browser);
         }
