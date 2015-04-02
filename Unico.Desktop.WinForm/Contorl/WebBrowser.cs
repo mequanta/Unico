@@ -88,10 +88,6 @@ namespace Unico.Desktop
         private void OnBrowserCreate(CefBrowser browser)
         {
             this.browser = browser;
-            var host = browser.GetHost();
-            var wi = CefWindowInfo.Create();
-            wi.SetAsPopup(IntPtr.Zero, "DevTools");
-            host.ShowDevTools(wi, new DevToolsClient(), new CefBrowserSettings(), new CefPoint(0, 0));
         }
 
         private void OnBrowserClose(CefBrowser browser)
