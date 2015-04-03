@@ -3,15 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{948B3504-5B70-4649-8FE4-BDE1FB46EC69};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D7E09532-1042-4F5F-B4A0-347B3044C911}</ProjectGuid>
+    <ProjectGuid>{A0E2B258-D680-422D-9075-3C2B70F8F564}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Unico.Desktop</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <AssemblyName>Unico.Desktop.MonoMac</AssemblyName>
-    <SuppressXamMacUpsell>True</SuppressXamMacUpsell>
+    <AssemblyName>Unico.Desktop.XamMac</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,49 +23,55 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <UseRefCounting>false</UseRefCounting>
+    <UseRefCounting>true</UseRefCounting>
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <EnablePackageSigning>false</EnablePackageSigning>
     <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
+    <PackageSigningKey>Developer ID Installer</PackageSigningKey>
+    <XamMacArch>x86_64</XamMacArch>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\AppStore</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|macosx64' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <EnableCodeSigning>false</EnableCodeSigning>
     <UseRefCounting>false</UseRefCounting>
     <UseSGen>false</UseSGen>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <CreatePackage>false</CreatePackage>
-    <EnableCodeSigning>false</EnableCodeSigning>
     <EnablePackageSigning>false</EnablePackageSigning>
+    <XamMacArch>x86_64</XamMacArch>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="MonoMac" />
+    <Reference Include="Xamarin.Mac" />
     <Reference Include="Xilium.CefGlue">
-      <HintPath>..\packages\Xilium.CefGlue.3.2171.1949\lib\net45\Xilium.CefGlue.dll</HintPath>
+      <HintPath>..\packages\Xilium.CefGlue.3.2272.2035\lib\Xamarin.Mac20\Xilium.CefGlue.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Control\" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="MainWindow.cs" />
-    <Compile Include="MainWindowController.cs" />
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowController.cs" />
+    <Compile Include="MainWindowController.designer.cs">
+      <DependentUpon>MainWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="AppDelegate.designer.cs">
       <DependentUpon>AppDelegate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\WebBrowser.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainWindow.xib" />
@@ -74,13 +81,20 @@
     <None Include="Info.plist" />
     <None Include="packages.config" />
     <None Include="install_cef.sh" />
+    <None Include="app.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\cef.redist.3.2171.1949\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2171.1949\build\cef.redist.targets')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.3.2272.2035\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.2272.2035\build\cef.redist.targets')" />
   <ItemGroup>
     <ProjectReference Include="..\Unico.Desktop.Common\Unico.Desktop.Common.csproj">
       <Project>{52ADCE38-8C30-4565-92BE-566DD404AD11}</Project>
       <Name>Unico.Desktop.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\packages\cef.redist.3.2272.2035\macosx64\libcef.dylib">
+      <IsCxx>False</IsCxx>
+      <Kind>Dynamic</Kind>
+    </NativeReference>
   </ItemGroup>
 </Project>

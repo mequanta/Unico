@@ -21,7 +21,10 @@
     "jq-console": "~2.11.0",
     "octicons": "~2.2.0",
     "lodash": "~3.5.0",
-    "text": "~2.0.14"
+    "text": "~2.0.14",
+    "dijit": "~1.10.4",
+    "dojox": "~1.10.4",
+    "dojo": "~1.10.4"
   },
   "exportsOverride": {
     "jquery": {

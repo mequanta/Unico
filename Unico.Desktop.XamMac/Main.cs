@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Drawing;
-using MonoMac.Foundation;
-using MonoMac.AppKit;
-using MonoMac.ObjCRuntime;
+using AppKit;
 using Xilium.CefGlue;
-using System.IO;
-using System.Reflection;
+using Foundation;
 
 namespace Unico.Desktop
 {
@@ -22,7 +18,7 @@ namespace Unico.Desktop
         }
     }
 
-    class MainClass
+    static class MainClass
     {
         static int Main(string[] args)
         {
@@ -41,7 +37,7 @@ namespace Unico.Desktop
             CefRuntime.Initialize(mainArgs, settings, app, IntPtr.Zero);
 
             SimpleApplication.Init();
-            SimpleApplication.SharedApplication.Delegate = new AppDelegate();
+            //SimpleApplication.SharedApplication.Delegate = new AppDelegate();
             SimpleApplication.Main(args);
 
             CefRuntime.Shutdown();
@@ -49,4 +45,3 @@ namespace Unico.Desktop
         }
     }
 }
-
