@@ -77,7 +77,7 @@ namespace Unico.Desktop
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (browser != null)
+            if (this.browser != null)
             {
                 var flags = NativeMethods.SetWindowPosFlags.NoMove | NativeMethods.SetWindowPosFlags.NoZOrder;
                 var handle = browser.GetHost().GetWindowHandle();
@@ -92,6 +92,22 @@ namespace Unico.Desktop
 
         private void OnBrowserClose(CefBrowser browser)
         {
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (this.browser != null && disposing)
+            {
+                var host = this.browser.GetHost();
+                if (host != null)
+                {
+                    host.CloseBrowser();
+                    host.Dispose();
+                }
+                this.browser.Dispose();
+                this.browser = null;
+            }
+            base.Dispose(disposing);
         }
     }
 }

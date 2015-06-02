@@ -54,10 +54,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Control\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="MainWindow.cs" />
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>

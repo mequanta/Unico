@@ -36,7 +36,7 @@ namespace Unico.Desktop
                 MultiThreadedMessageLoop = CefRuntime.Platform == CefRuntimePlatform.Windows,
                 ResourcesDirPath =resourceDir,
                 LocalesDirPath = localesDir,
-                NoSandbox = CefRuntime.Platform == CefRuntimePlatform.Linux,
+                NoSandbox = true,
                 WindowlessRenderingEnabled = true
             };
 
