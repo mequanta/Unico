@@ -44,18 +44,18 @@
     <Reference Include="Microsoft.Owin.StaticFiles">
       <HintPath>..\packages\Microsoft.Owin.StaticFiles.3.0.1\lib\net45\Microsoft.Owin.StaticFiles.dll</HintPath>
     </Reference>
-    <Reference Include="Owin.Routing">
-      <HintPath>..\packages\Owin.Routing.0.5.4.0\lib\net45\Owin.Routing.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Razor">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="RazorEngine">
-      <HintPath>..\packages\RazorEngine.3.6.4\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="Microsoft.Owin.Diagnostics">
       <HintPath>..\packages\Microsoft.Owin.Diagnostics.3.0.1\lib\net45\Microsoft.Owin.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.Routing">
+      <HintPath>..\packages\Owin.Routing.0.6.5.0\lib\net45\Owin.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

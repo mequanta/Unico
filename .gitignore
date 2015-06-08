@@ -7,7 +7,6 @@
 *.sln.docstates
 *.userprefs
 
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -187,3 +186,5 @@ node_modules/
 bower_components/
 www/lib/
 .idea/
+wwwdist/
+**/*.lock.json
